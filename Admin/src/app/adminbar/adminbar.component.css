@@ -1,0 +1,46 @@
+.bar{
+  margin-left: -40px;
+  margin-bottom: 0px;
+}
+
+.bar>li{
+  display: inline-block;
+
+  color:deeppink;
+  background-color:transparent ;
+  border-radius: 4px;
+  font-family: Algerian;
+  font-size: 15px;
+  cursor: pointer;
+}
+.bar>li>a{
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+
+.bar>li>a:hover{
+  background-color: white;
+  color:darkred !important;
+  border-radius: 4px;
+}
+.welcome{
+  color: white !important;
+  float: right;
+  margin-right: 10px;
+
+}
+.welcome:hover{
+  background-color: transparent !important;
+  color:white !important;
+}
+.selected{
+  background-color: white;
+  color:darkred !important;
+  border-radius: 4px;
+}
+

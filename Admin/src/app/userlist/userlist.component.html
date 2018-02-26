@@ -1,0 +1,57 @@
+<input type="text" id="name"  placeholder="Search By Name.." title="Type in a name" (keyup)="searchuser(name.value)" #name [(ngModel)]="sname" onfocus="this.placeholder=''" onblur="this.placeholder = 'Search By Name..'">
+
+<input type="text" id="email"  placeholder="Search By Email.." title="Type in a name" (keyup)="searchuser(email.value)" #email [(ngModel)]="semail" onfocus="this.placeholder=''" onblur="this.placeholder = 'Search By Email..'">
+
+<input type="text" id="contact"  placeholder="Search By Contact.." title="Type in a name" (keyup)="searchuser(contact.value)" #contact [(ngModel)]="scontact" onfocus="this.placeholder=''" onblur="this.placeholder = 'Search By Contact..'">
+<input type="text" id="myInput"  placeholder="Search By Any.." title="Type in a name" (keyup)="search(srch.value)" #srch onfocus="this.placeholder=''" onblur="this.placeholder = 'Search By Any..'">
+
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>DOB</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Balance(in Rs)</th>
+    <th>Blocked Amount</th>
+    <th>Recharge</th>
+  </tr>
+  </thead>
+  <tbody>
+ <tr *ngFor="let customer of customers;let i = index">
+    <td scope="row">{{i+1}}</td>
+    <td>{{customer.customerName}}</td>
+    <td>{{customer.date}}</td>
+   <td>{{customer.contact}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.balance}}</td>
+   <td>{{customer.blockedAmount}}</td>
+
+   <td><i class="fa fa-plus plus" data-toggle="modal" data-target="#myModal" (click)="onrecharge(customer.uniqueId)"></i> </td>
+  </tr>
+  </tbody>
+</table>
+<div *ngIf="clicked==true">
+<app-recharge (closebox)="close()" (recharge)="setBalance(uniqueId,$event)"></app-recharge>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+        <h4 class="modal-title" id="myModalLabel">Recharge</h4>
+      </div>
+      <div class="modal-body" id="modal-body">
+        Enter Amount: <input type="text"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="dbutton">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

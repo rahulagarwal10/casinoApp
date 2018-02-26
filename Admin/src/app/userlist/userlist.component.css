@@ -1,0 +1,68 @@
+.table{
+  margin-top: 5%;
+  border: none;
+}
+.table>tbody>tr>td{
+  border:none ;
+}
+
+.table>thead{
+  margin-top: 10%;
+  font-weight: 900;
+  background-color: transparent;
+ color: white;
+  border: none;
+}
+
+.table>tbody>tr:nth-child(odd){
+  background-color: transparent;
+font-family: "Book Antiqua";
+  font-weight: 800;
+  color: white;
+}
+
+.table>tbody>tr:nth-child(even){
+  background-color: transparent;
+  font-family: "Book Antiqua";
+  font-weight: 800;
+  color: white;
+}
+
+.plus{
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+#myInput,#email,#contact,#name {
+  background-image: url('../../assets/images/search.png');
+  background-position: 10px 12px;
+  background-size: 10%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 20%;
+  height:45px;
+  font-size: 14px;
+  padding: 10px 10px 12px 40px;
+  color: white;
+  margin-top: 5%;
+
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+#email{
+  margin-left: 60px;
+}
+#contact{
+  margin-left: 60px;
+}
+#myInput{
+  margin-left: 60px;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+
+
+

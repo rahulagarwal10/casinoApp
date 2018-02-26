@@ -1,0 +1,13 @@
+<div class="page">
+<div class="box">
+  <i class="fa fa-times cross" (click)="close()"></i>
+  <div class="recharge"><h1>Recharge</h1></div>
+  <div class="input">
+    <div class="amount">Enter Amount</div>
+    <div><input type="number" class="form-control" [(ngModel)]="amount" value="0" min="0"></div>
+  </div>
+  <div>
+    <button (click)="rechargeAmount(amount)" class="btn btn-primary">Recharge</button>
+  </div>
+</div>
+</div>

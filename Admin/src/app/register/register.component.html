@@ -1,0 +1,97 @@
+<div class="table">
+<form style="margin-top: 40px;" #registerForm="ngForm">
+  <div class="add">
+    Add  Customer  Details:
+  </div>
+
+
+  <table >
+  <tr class="form-group">
+    <td><label class="lbl" for="usr"> Customer Name:</label></td>
+    <td><input type="text" class="form-control" id="usr" [(ngModel)]="customerName" name="cname"  #cname="ngModel" required pattern="^[a-zA-Z ]*$">
+      <div *ngIf="cname.invalid && (cname.dirty || cname.touched)" class="alert alert-danger">
+
+      <div *ngIf="cname.errors.required">
+        <i class="fa fa-exclamation-triangle"></i>Name is required.
+      </div>
+        <div *ngIf="cname.errors.pattern">
+          <i class="fa fa-exclamation-triangle"></i>Name should only contain alphabets and spaces.
+        </div>
+      </div></td>
+  </tr>
+
+  <tr class="form-group">
+    <td> <label class="lbl" for="dob">Date Of Birth:</label></td>
+    <td> <input type="date" class="form-control" id="dob" [(ngModel)]="date" name="cdate" #cdate="ngModel" required  max="{{minAge | date:'yyyy-MM-dd'}}"/>
+      <div *ngIf="cdate.invalid && (cdate.dirty || cdate.touched)" class="alert alert-danger">
+
+        <div *ngIf="cdate.errors.required">
+          <i class="fa fa-exclamation-triangle"></i> Date of Birth is required.
+        </div>
+
+      </div></td>
+  </tr>
+  <tr class="form-group">
+    <td> <label class="lbl" for="contact">Contact:</label></td>
+    <td><input type="text" class="form-control" id="contact" [(ngModel)]="contact"  name="ccontact" #ccontact="ngModel"   required pattern="[0-9]{10}" maxlength="10">
+      <div *ngIf="ccontact.invalid && (ccontact.dirty || ccontact.touched)" class="alert alert-danger">
+
+        <div *ngIf="ccontact.errors.required">
+          <i class="fa fa-exclamation-triangle"></i>Contact is required.
+        </div>
+        <div *ngIf="ccontact.errors.pattern">
+          <i class="fa fa-exclamation-triangle"></i>Contact should only contain 10 digits.
+        </div>
+      </div></td>
+
+    </tr>
+  <tr class="form-group">
+    <td><label class="lbl" for="email">Email:</label></td>
+    <td> <input type="email" class="form-control" id="email" [(ngModel)]="email" name="cemail" #cemail="ngModel" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+      <div *ngIf="cemail.invalid && (cemail.dirty || cemail.touched)" class="alert alert-danger">
+
+        <div *ngIf="cemail.errors.required">
+          <i class="fa fa-exclamation-triangle"></i>Email is required.
+        </div>
+        <div *ngIf="cemail.errors.pattern">
+          <i class="fa fa-exclamation-triangle"></i>Must be a Valid Email Id
+        </div>
+      </div></td>
+    </tr>
+  <tr class="form-group" >
+    <td><label class="lbl" for="file">Identity Proof:</label></td>
+
+    <td><input type="file" id="file"  name="file" [(ngModel)]="idProof" (change)="setProofOfId($event)" name="cfile" #cfile="ngModel">
+      <div *ngIf="cfile.invalid && (cfile.dirty || cfile.touched)" class="alert alert-danger">
+
+      <div *ngIf="cfile.errors.required">
+        <i class="fa fa-exclamation-triangle"></i>Identity Proof is required.
+      </div>
+      </div>
+
+    </td>
+    </tr>
+  </table>
+
+
+
+
+  <button class="btn1 post" (click)="addCustomer(customerName,date,contact,email); registerForm.reset();" [disabled]="!registerForm.form.valid">Register</button>
+
+</form>
+  <<div *ngIf="clicked==true">
+<div class="page">
+    <div class="box">
+      <i class="fa fa-times cross" (click)="close()"></i>
+      <div class="recharge"><h1>Unique Key</h1></div>
+      <div class="input">
+        <div class="amount">Your Unique Key:<label style="margin-left: 30px; color:#6e2d35 !important;">{{uniqueId}}</label></div>
+        <div class="key"></div>
+      </div>
+      <div>
+        <button (click)="close()" class="btn btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
